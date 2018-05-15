@@ -1,0 +1,14 @@
+# import Post, User from "./generated/prisma.graphql"
+
+type Query {
+  feed: [Post!]!
+  drafts: [Post!]!
+  post(id: ID!): Post
+  usersGroupedPosts(where: UserWhereInput, orderBy: UserOrderByInput): [User!]!
+}
+
+type Mutation {
+  createDraft(title: String!, text: String): Post
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+}
